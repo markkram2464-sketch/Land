@@ -54,13 +54,31 @@ const questions = [
   }
 ];
 
+const motivationalMessages = [
+  "¡Excelente inicio! Continuá para desbloquear tu beneficio...",
+  "¡Vas muy bien! Ya estás a mitad de camino...",
+  "¡Casi ahí! Solo quedan 3 preguntas más...",
+  "¡Increíble! Una pregunta más y desbloqueás tu recompensa...",
+  "¡Última pregunta! Tu beneficio exclusivo te espera..."
+];
+
 const QuizSection = ({ onComplete }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
   const [selectedOption, setSelectedOption] = useState(null);
   const [showResult, setShowResult] = useState(false);
+  const [participantCount, setParticipantCount] = useState(12847);
+  const [showMotivation, setShowMotivation] = useState(false);
 
   const progress = ((currentQuestion) / questions.length) * 100;
+
+  // Animate participant counter
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setParticipantCount(prev => prev + Math.floor(Math.random() * 3));
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
