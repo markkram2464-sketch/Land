@@ -84,6 +84,12 @@ const QuizSection = ({ onComplete }) => {
     setSelectedOption(option);
     setAnswers({ ...answers, [currentQuestion]: option });
     
+    // Show motivational message
+    if (currentQuestion < questions.length - 1) {
+      setShowMotivation(true);
+      setTimeout(() => setShowMotivation(false), 2000);
+    }
+    
     setTimeout(() => {
       if (currentQuestion < questions.length - 1) {
         setCurrentQuestion(currentQuestion + 1);
