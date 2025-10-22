@@ -342,10 +342,97 @@ body {
   text-align: center;
 }
 
-.result-icon {
-  color: #10b981;
+/* Reward Animation */
+.reward-animation {
+  position: relative;
   margin-bottom: 1.5rem;
-  animation: scaleIn 0.5s ease-out;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trophy-icon {
+  color: #f59e0b;
+  animation: trophyBounce 0.8s ease-out;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes trophyBounce {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-180deg);
+  }
+  60% {
+    transform: scale(1.2) rotate(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.stars-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.star {
+  position: absolute;
+  color: #fbbf24;
+  animation: starFloat 2s ease-in-out infinite;
+}
+
+.star-1 {
+  top: 10%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.star-2 {
+  top: 15%;
+  right: 25%;
+  animation-delay: 0.3s;
+}
+
+.star-3 {
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-delay: 0.6s;
+}
+
+@keyframes starFloat {
+  0%, 100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(-10px) scale(1.1);
+  }
+}
+
+.unlock-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  padding: 0.625rem 1.25rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  animation: scaleIn 0.5s ease-out 0.3s both;
 }
 
 @keyframes scaleIn {
@@ -357,6 +444,27 @@ body {
     opacity: 1;
     transform: scale(1);
   }
+}
+
+.reward-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: #fef3c7;
+  color: #78350f;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  border: 2px solid #fbbf24;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.reward-box svg {
+  color: #f59e0b;
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .result-title {
