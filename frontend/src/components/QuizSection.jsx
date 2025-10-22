@@ -105,17 +105,32 @@ const QuizSection = ({ onComplete }) => {
       <div className="quiz-result-container">
         <Card className="result-card">
           <div className="result-content">
-            <CheckCircle2 className="result-icon" size={64} />
-            <h2 className="result-title">¡Gracias por participar!</h2>
+            <div className="reward-animation">
+              <Trophy className="trophy-icon" size={72} />
+              <div className="stars-container">
+                <Star className="star star-1" size={24} />
+                <Star className="star star-2" size={20} />
+                <Star className="star star-3" size={28} />
+              </div>
+            </div>
+            <h2 className="result-title">¡Felicitaciones! 🎉</h2>
+            <div className="unlock-badge">
+              <Gift size={20} />
+              <span>Beneficio Desbloqueado</span>
+            </div>
             <p className="result-text">
-              Tu opinión es muy valiosa. Ahora te invitamos a conocer más sobre la exposición internacional de dispositivos electrónicos que transformó el mercado en 2024.
+              Has completado la encuesta exitosamente. Como agradecimiento, ahora tenés acceso exclusivo al artículo completo con información privilegiada sobre la exposición internacional de dispositivos electrónicos 2024.
             </p>
+            <div className="reward-box">
+              <Zap size={18} />
+              <span>Acceso VIP al contenido exclusivo + información sobre productos de demostración disponibles</span>
+            </div>
             <Button 
               onClick={onComplete}
               className="continue-button"
               size="lg"
             >
-              Ver artículo completo
+              Reclamar mi acceso exclusivo
             </Button>
           </div>
         </Card>
