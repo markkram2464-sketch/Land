@@ -263,6 +263,60 @@ body {
   transform: scale(1.02);
 }
 
+/* Motivational Message */
+.motivational-message {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+  animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Bottom Motivator */
+.bottom-motivator {
+  max-width: 600px;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.reward-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #fef3c7;
+  color: #92400e;
+  padding: 0.875rem 1.5rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 2px dashed #fbbf24;
+}
+
+.reward-preview svg {
+  color: #f59e0b;
+}
+
 /* Quiz Result Styles */
 .quiz-result-container {
   min-height: 100vh;
