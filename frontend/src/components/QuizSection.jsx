@@ -140,11 +140,54 @@ const QuizSection = ({ onComplete }) => {
 
   return (
     <div className="quiz-container">
+      {/* Incentive Banner */}
+      <div className="incentive-banner">
+        <Gift className="banner-icon" size={24} />
+        <div className="banner-content">
+          <p className="banner-title">¡Completá la encuesta y desbloqueá beneficios exclusivos!</p>
+          <p className="banner-subtitle">Acceso VIP a información privilegiada + descuentos especiales</p>
+        </div>
+      </div>
+
+      {/* Social Proof */}
+      <div className="social-proof">
+        <Users size={18} />
+        <span><strong>{participantCount.toLocaleString()}</strong> personas ya completaron esta encuesta</span>
+      </div>
+
       <div className="quiz-header">
         <h1 className="quiz-title">Encuesta Rápida</h1>
         <p className="quiz-subtitle">Pregunta {currentQuestion + 1} de {questions.length}</p>
-        <Progress value={progress} className="quiz-progress" />
+        
+        {/* Progress with badges */}
+        <div className="progress-container">
+          <Progress value={progress} className="quiz-progress" />
+          <div className="progress-badges">
+            {[...Array(5)].map((_, index) => (
+              <div 
+                key={index} 
+                className={`badge-step ${index <= currentQuestion ? 'completed' : ''}`}
+              >
+                {index < currentQuestion ? (
+                  <CheckCircle2 size={20} />
+                ) : index === currentQuestion ? (
+                  <Zap size={20} />
+                ) : (
+                  <span>{index + 1}</span>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
+
+      {/* Motivational Message */}
+      {showMotivation && (
+        <div className="motivational-message">
+          <CheckCircle2 size={20} />
+          <span>{motivationalMessages[currentQuestion]}</span>
+        </div>
+      )}
 
       <Card className="question-card">
         <h2 className="question-text">{questions[currentQuestion].question}</h2>
@@ -160,6 +203,14 @@ const QuizSection = ({ onComplete }) => {
           ))}
         </div>
       </Card>
+
+      {/* Bottom Motivator */}
+      <div className="bottom-motivator">
+        <div className="reward-preview">
+          <Trophy size={16} />
+          <span>Solo {questions.length - currentQuestion} {questions.length - currentQuestion === 1 ? 'pregunta' : 'preguntas'} para desbloquear tu recompensa</span>
+        </div>
+      </div>
     </div>
   );
 };
