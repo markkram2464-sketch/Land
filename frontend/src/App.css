@@ -484,19 +484,29 @@ body {
 .continue-button {
   background: linear-gradient(90deg, #f77f00 0%, #e85d04 100%);
   color: white;
-  padding: 0.875rem 2.5rem;
+  padding: 1rem 3rem;
   font-size: 1.125rem;
-  font-weight: 600;
+  font-weight: 700;
   border-radius: 12px;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(232, 93, 4, 0.3);
+  box-shadow: 0 8px 24px rgba(232, 93, 4, 0.4);
+  animation: buttonPulse 2s ease-in-out infinite;
+}
+
+@keyframes buttonPulse {
+  0%, 100% {
+    box-shadow: 0 8px 24px rgba(232, 93, 4, 0.4);
+  }
+  50% {
+    box-shadow: 0 8px 32px rgba(232, 93, 4, 0.6);
+  }
 }
 
 .continue-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(232, 93, 4, 0.4);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(232, 93, 4, 0.5);
 }
 
 /* Article Styles */
