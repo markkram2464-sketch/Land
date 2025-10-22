@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
 import { Progress } from "./ui/progress";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Gift, Users, Trophy, Star, Zap } from "lucide-react";
 
 const questions = [
   {
